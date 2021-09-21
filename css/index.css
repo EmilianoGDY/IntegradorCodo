@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 90px 20px 0;
+    background: #707073;
+}
+
+header{
+    background-color: #242427;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    max-width: 992px;
+    margin: 0 auto;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+
+.nav-item{
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+    width: max-content;
+   
+}
+
+.nav-link:hover{
+    background-color: rgb(145, 71,255);
+    transition: 0.5s;
+}
+
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    
+}
+
+#logo{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 80px;
+    text-decoration: none;
+    color: white;
+}
+
+.burguer{
+    color: white;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding:0 20px;
+    line-height: 60px;
+    display: none;
+}
+
+@media (max-width: 768px){
+    body{
+        padding-top: 70px;
+    }
+
+    header{
+        height: 60px;
+    }
+
+    #logo{
+        font-size: 25px;
+        font-weight: bold;
+        padding: 0 20px;
+        line-height: 60px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .nav-menu{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+        background-color:rgb(7, 105, 233) ;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100%;
+        padding: 20px 0;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    .nav-item{
+        line-height: 70px;
+    }
+
+    .nav-link:hover{
+        background: none;
+        color:rgb(145, 71,255) ;}
+
+    .burguer{
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-menu_visible{
+        left: 0;
+    }
+
+}
