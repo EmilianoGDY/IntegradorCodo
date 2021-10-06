@@ -170,3 +170,18 @@ header{
 .contenedor .pie{
     grid-column: span 4;
 }
+
+
+.txt-pie{
+    margin: auto 60px;
+}
+
+.img-encabezado{
+    border-radius: 7px;
+    width: 300px;
+    height: 400px;
+}
+
+.txt-principal{
+    vertical-align:top;
+}
