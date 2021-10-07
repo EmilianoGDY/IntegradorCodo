@@ -61,7 +61,7 @@ header{
 #logo{
     font-size: 30px;
     font-weight: bold;
-    padding: 0 40px;
+    padding: 0;
     line-height: 80px;
     text-decoration: none;
     color: white;
@@ -77,9 +77,10 @@ header{
     display: none;
 }
 
-@media (max-width: 768px){
+@media screen and (max-width: 837px){
     body{
         padding-top: 70px;
+        
     }
 
     header{
@@ -89,7 +90,7 @@ header{
     #logo{
         font-size: 25px;
         font-weight: bold;
-        padding: 0 20px;
+        padding: 0;
         line-height: 60px;
         text-decoration: none;
         color: white;
@@ -98,13 +99,14 @@ header{
     .nav-menu{
         flex-direction: column;
         align-items: center;
+        margin-left: 0px;
         margin-right: 20px;
         background-color:#242427 ;
         position: fixed;
         left: 0;
         top: 60px;
         width: 100%;
-        padding: 20px 0;
+        padding: 20px 0 0 0;
         height: calc(100% - 60px);
         overflow-y: auto;
         left: 100%;
@@ -128,9 +130,12 @@ header{
         left: 0;
     }
 
+  
+
 }
 
 /** Fin Barra de navegacion **/
+
 
 .contenedor{
     width: 90%;
@@ -218,6 +223,47 @@ thead{
 
 tr:nth-child(even){
     background-color: #ddd;
+}
+
+.pie{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width: 817px){
+    body{
+        background-color: #366251;
+    }
+    .contenedor .titulo{
+        grid-column: 1/-1;
+    }
+    .contenedor .text-cont{
+        grid-column: 1/-1;
+    }
+    .contenedor .puestos{
+        grid-column: 1/-1;
+    }
+}
+
+@media screen and (max-width: 424px){
+    span .img-encabezado{
+        width: 90%;
+        height: 10%;
+    }
+    
+}
+
+@media screen and (max-width: 857px){
+   .pie{
+       display: flex;
+       justify-content: space-around;
+       flex-direction:column;
+       align-items: center;
+   }
+      
+ 
+    
 }
 
 
