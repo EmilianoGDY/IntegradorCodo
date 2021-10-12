@@ -77,7 +77,7 @@ header{
     display: none;
 }
 
-@media screen and (max-width: 837px){
+@media screen and (max-width: 768px){
     body{
         padding-top: 70px;
         background-color: black;
@@ -135,3 +135,152 @@ header{
 }
 
 /** Fin Barra de navegacion **/
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 10px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.container .titu {
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    background-color: #12203E;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+h1{
+    animation-name: mianimacion;
+    animation-duration: 30s;
+    position:relative;
+}
+
+
+@keyframes mianimacion {
+    0% {color: white;left: 0; top: 0; }
+    25% {color:springgreen;left: 400px; top: 0;}
+    50% {color: skyblue;left: 0; top: 0;  }
+    100% {color: slateblue;left: 400px; top: 0;}
+
+}
+
+.container .stats{
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);  
+}
+
+#celda1{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px ;
+    grid-column: 1/2;
+}
+
+#celda2{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px ;
+    grid-column: 2/3;
+}
+
+#celda3{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px;
+    grid-column: 3/4;
+}
+
+#celda4{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px;
+    grid-column: 1/2;
+}
+
+#celda5{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px ;
+    grid-column: 2/3;
+}
+
+#celda6{
+    background-color: #0060E0;
+    border-radius: 5px;
+    margin: 5px;
+    grid-column: 3/4;
+}
+
+h4{
+    margin-left: 5px;
+    color: white;
+}
+
+img{
+    margin: 0 12px;
+    margin-top: 5px;
+    width: 90%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+p{
+    margin-left:5px;
+}
+
+
+.tablas .tit-tabla{
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.container .tablas{
+    grid-column: 4/5;
+    background-color: teal;
+}
+
+.tabla{
+    margin: 20px auto;
+    background-color: whitesmoke;
+    text-align: left;
+    width: 90%;
+    border-collapse:collapse ;
+}
+
+th, td{
+    padding: 5px;
+}
+
+thead{
+    background-color: steelblue;
+    border-bottom: solid 5px #0f362d;
+    color:midnightblue;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+
+
+
+.pie{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#0060E0 ;
+    padding: 20px;
+    border-radius: 4px;
+    grid-column: 1/-1;
+}
