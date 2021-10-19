@@ -240,6 +240,8 @@ tr:nth-child(even){
     }
     .contenedor .text-cont{
         grid-column: 1/-1;
+        display: flex;
+        flex-direction: column;
     }
     .contenedor .puestos{
         grid-column: 1/-1;
@@ -248,8 +250,8 @@ tr:nth-child(even){
 
 @media screen and (max-width: 424px){
     span .img-encabezado{
-        width: 90%;
-        height: 10%;
+        width: 99%;
+        height: 90%;
     }
     
 }
