@@ -252,6 +252,7 @@ tr:nth-child(even){
     span .img-encabezado{
         width: 99%;
         height: 90%;
+        margin-bottom: 20px;
     }
     
 }
