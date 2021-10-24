@@ -23,33 +23,74 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="titulo">
-            <h1>Inscribite Ahora !</h1>
-            <h3>Inscribite para recibir en tu correo información diaria actualizada sobre la primera division del futbol argentino</h3>
+    <form action="" class="formulario" id="formulario">
+        <!-- Grupo: Usuario -->
+        <div class="formulario__grupo" id="grupo__usuario">
+            <label for="usuario" class="formulario__label">Usuario</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="usuario123">
+                <i class=" formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El usuario debe ser de 4 a 16 digitos. Solo puede contener numeros, letras y guion bajo</p>
         </div>
-        <div id="bloque1"></div>
-        <form action="" class="formulario" >
-            <label for="mail"><i class="fas fa-at fa-1x"></i> E-mail:</label><br>
-            <input type="email" name="mail" id="email">
-            <br><br>
-            <label for="Usuario"><i class="fas fa-user-plus fa-1x"></i> Usuario:</label><br>
-            <input type="text" name="Usuario" id="user">
-            <br><br>
-            <label for="pass"><i class="fas fa-key fa-1x"></i> Contraseña:</label><br>
-            <input type="password" name="pass" id="contra">
-            <br><br>
-            <label for="pass2"> <i class="fas fa-lock fa-1x"></i> Re-ingrese Contraseña:</label><br>
-            <input type="password" name="pass2" id="contra2"><br><br>
-            <button type="submit">Susbribirte</button>
 
-            <p class="warnings"></p>
-        </form>
-        <div id="bloque2"></div>
-        <div class="pie">
-            <label class="txt-pie1">©2021 LIGAProInfo </label>  <label class="txt-pie2"><i class="fab fa-instagram fa-1x"></i>LIGAProOK</label>  <label class="txt-pie3"><i class="fab fa-twitter-square fa-1x"></i>LIGAProOK</label> <label class="txt-pie4"><i class="fab fa-whatsapp"></i>3894-987654</label>
+
+        <!-- Grupo: Nombre -->
+        <div class="formulario__grupo" id="grupo__nombre">
+            <label for="nombre" class="formulario__label">Nombre y Apellido</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="nombreyapell">
+                <i class=" formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El usuario debe ser de 4 a 16 digitos. Solo puede contener numeros, letras y guion bajo</p>
         </div>
-    </div>
+
+
+
+        <!-- Grupo: Contrasenia -->
+           <div class="formulario__grupo" id="grupo__password">
+            <label for="password" class="formulario__label">Contraseña</label>
+            <div class="formulario__grupo-input">
+                <input type="password" class="formulario__input" name="password" id="password" placeholder="">
+                <i class=" formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">La Contraseñadebe ser de 4 a 12 digitos</p>
+        </div>
+
+
+        <!-- Grupo: Contrasenia2 -->
+         <div class="formulario__grupo" id="grupo__password2">
+                <label for="password2" class="formulario__label">Repetir Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="password2" id="password2" placeholder="">
+                    <i class=" formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ambas Contraseñas deben ser iguales</p>
+        </div>
+
+
+        <!-- Grupo: Mail -->
+         <div class="formulario__grupo" id="grupo__mail">
+            <label for="corre" class="formulario__label">Correo Electronico</label>
+            <div class="formulario__grupo-input">
+                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                <i class=" formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El correo solo puede tener letras, numeros, puntos, guiones y guion bajo</p>
+        </div>
+
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+            <p><i class="fas fa-exclamation-triangle"></i><b>Error:</b>Por favor rellene el formulario correctamente</p>
+        </div>
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Enviar</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"></p>
+        </div>
+
+
+    </form>
    
     <script src="javascript/validar.js"></script>
 </body>
