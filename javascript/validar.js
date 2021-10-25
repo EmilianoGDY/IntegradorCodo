@@ -1,36 +1,118 @@
-const email = document.getElementById('email')
-const user = document.getElementById('user')
-const pass = document.getElementById('contra')
-const pass2 = document.getElementById('contra2')
-const form = document.querySelector('.formulario')
-const parrafo = document.querySelector('.warnings')
-const boton = document.querySelector('button')
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
 
-boton.addEventListener("submit", e=>{
+
+const expresiones = {
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	
+}
+
+const campos = {
+    usuario: false,
+    nombre: false,
+    password: false,
+    correo: false
+}
+
+
+const validarFormulario = (e) => {
+    switch (e.target.name) {
+        case "usuario":
+            if(expresiones.usuario.test(e.target.value)){
+                document.getElementById('grupo__usuario').classList.remove('formulario__grupo-incorrecto');
+                document.getElementById('grupo__usuario').classList.add('formulario__grupo-correcto');
+                document.querySelector('#grupo__usuario .formulario__input-error').classList.remove('formulario__input-error-activo');
+                campos['usuario'] = true;
+            }else{
+                document.getElementById('grupo__usuario').classList.add('formulario__grupo-incorrecto');
+                document.querySelector('#grupo__usuario .formulario__input-error').classList.add('formulario__input-error-activo');
+            }
+        break
+        case "nombre":
+            if(expresiones.nombre.test(e.target.value)){
+                document.getElementById('grupo__nombre').classList.remove('formulario__grupo-incorrecto');
+                document.getElementById('grupo__nombre').classList.add('formulario__grupo-correcto');
+                document.querySelector('#grupo__nombre .formulario__input-error').classList.remove('formulario__input-error-activo');
+                campos["nombre"] = true;
+            }else{
+                document.getElementById('grupo__nombre').classList.add('formulario__grupo-incorrecto');
+                document.querySelector('#grupo__nombre .formulario__input-error').classList.add('formulario__input-error-activo');
+            }
+        break
+        case "password":
+            if(expresiones.password.test(e.target.value)){
+                document.getElementById('grupo__password').classList.remove('formulario__grupo-incorrecto');
+                document.getElementById('grupo__password').classList.add('formulario__grupo-correcto');
+                document.querySelector('#grupo__password .formulario__input-error').classList.remove('formulario__input-error-activo');
+            }else{
+                document.getElementById('grupo__password').classList.add('formulario__grupo-incorrecto');
+                document.querySelector('#grupo__password .formulario__input-error').classList.add('formulario__input-error-activo');
+            }
+            validarPass();
+        break
+        case "password2":
+            validarPass();
+        break
+        case "correo":
+            if(expresiones.correo.test(e.target.value)){
+                document.getElementById('grupo__correo').classList.remove('formulario__grupo-incorrecto');
+                document.getElementById('grupo__correo').classList.add('formulario__grupo-correcto');
+                document.querySelector('#grupo__correo .formulario__input-error').classList.remove('formulario__input-error-activo');
+                campos['correo'] = true;
+            }else{
+                document.getElementById('grupo__correo').classList.add('formulario__grupo-incorrecto');
+                document.querySelector('#grupo__correo .formulario__input-error').classList.add('formulario__input-error-activo');
+            }
+        break
+    
+    
+    }   
+}
+
+const validarPass = () =>{
+    const pass = document.getElementById('password');
+    const pass2 = document.getElementById('password2');
+
+    if(pass.value !== pass2.value){
+        document.getElementById('grupo__password2').classList.add('formulario__grupo-incorrecto');
+        document.querySelector('#grupo__password2 .formulario__input-error').classList.add('formulario__input-error-activo');
+        campos['password'] = false;
+    }else{
+        document.getElementById('grupo__password2').classList.remove('formulario__grupo-incorrecto');
+        document.getElementById('grupo__password2').classList.add('formulario__grupo-correcto');
+        document.querySelector('#grupo__password2 .formulario__input-error').classList.remove('formulario__input-error-activo');
+        campos['password'] = true;
+    }
+
+}
+
+
+inputs.forEach( (input)=>{
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+
+});
+
+
+formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-    let warnings = "" ;
-    let entrar = false;
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-    parrafo.innerHTML = "";
-    if(user.value.length < 6){
-        warnings += 'El nombre no es valido <br>';
-        entrar = true ; 
-    };
 
-    if(!regexEmail.test(email.value)){
-        warnings += 'El email no es valido <br>';
-        entrar = true;
-    };
+    if(campos.usuario && campos.nombre && campos.password && campos.correo){
+        formulario.reset();
+        document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+        setTimeout(()=>{
+            document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+        }, 5000);
+        document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo')
 
 
-    if(pass.value.length < 8){
-        warnings += 'La contraseña no es valida <br>';
-        entrar = true ;
-    };
-
-
-    if(entrar){
-        parrafo.innerHTML = warnings ;
-    };
+        document.querySelectorAll('.formulario__grupo-correcto').forEach((inp)=>{
+            inp.classList.remove('formulario__grupo-correcto');
+        })
+    }else{
+        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    }
 })
-
